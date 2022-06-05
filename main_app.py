@@ -1,4 +1,5 @@
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer, QTime, QLocale
+from PyQt5.QtGui import QDoubleValidator, QIntValidator, QFont
 from PyQt5.QtWidgets import (QApplication, QWidget, QHBoxLayout, QVBoxLayout, QGroupBox, QRadioButton, QPushButton, QLabel, QListWidget, QLineEdit)
 
 from instr import *
@@ -7,9 +8,9 @@ from second_win import *
 class MainWin(QWidget):
     def __init__(self):
         super().__init__()
+        self.set_appear()
         self.initUI()
         self.connects()
-        self.set_appear()
         self.show()
     
     def initUI(self):
@@ -34,6 +35,9 @@ class MainWin(QWidget):
         self.resize(win_width, win_height)
         self.move(win_x, win_y)
 
-app = QApplication([])
-mw = MainWin()
-app.exec_()
+def main():
+    app = QApplication([])
+    mw = MainWin()
+    app.exec_()
+
+main()
